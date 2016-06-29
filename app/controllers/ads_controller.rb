@@ -9,11 +9,11 @@ class AdsController < ApplicationController
   end
 
   def new
-    @ad = Ad.new
+    @ad = current_user.ads.build
   end
 
   def create
-    @ad = Ad.new(ad_params)
+    @ad = current_user.ads.build(ad_params)
       if @ad.save
         redirect_to root_path
       else
