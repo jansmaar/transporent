@@ -1,22 +1,25 @@
-<h2><%= @ad.title %> </h2>
-  <p><%= @ad.price %> </p>
-  <p><%= @ad.categorie %> </p>
-  <p><%= @ad.brand %> </p>
-  <p><%= @ad.capacity %> </p>
-  <p><%= @ad.license %> </p>
-  <p><%= @ad.plug %> </p>
-  <p><%= @ad.size %> </p>
-  <p><%= @ad.restrictions %> </p>
-  <p><%= @ad.status %> </p>
-  <p><%= @ad.transmission %> </p>
-  <p><%= @ad.year %> </p>
-  <p><%= @ad.engine %> </p>
-  <p><%= @ad.fuel %> </p>
 
-  <h3>Comments:</h3>
-<%= link_to "back", root_path %>
-  <% if user_signed_in? %>
-    <h3>reply to Message:</h3>
-    <%= link_to "edit", edit_ad_path(@ad) %>
-    <%= link_to "delete", ad_path(@ad), method: :delete, data: { confirm: "Weet je het zeker?"} %>
+  <h2><%= @ad.title %> </h2>
+    <p><%= @ad.description %> </p>
+    <p><%= @ad.price %> </p>
+    <p><%= @ad.categorie %> </p>
+    <p><%= @ad.brand %> </p>
+    <p><%= @ad.capacity %> </p>
+    <p><%= @ad.license %> </p>
+    <p><%= @ad.plug %> </p>
+    <p><%= @ad.size %> </p>
+    <p><%= @ad.restrictions %> </p>
+    <p><%= @ad.status %> </p>
+    <p><%= @ad.transmission %> </p>
+    <p><%= @ad.year %> </p>
+    <p><%= @ad.engine %> </p>
+    <p><%= @ad.fuel %> </p>
+
+    <h3>Comments:</h3>
+
+  <%= link_to "back", root_path %>
+    <% if user_signed_in? %>
+      <h3>reply to Message:</h3>
+      <%= link_to "edit", edit_ad_path(@ad) %>
+      <%= link_to "delete", ad_path(@ad), method: :delete, data: { confirm: "Weet je het zeker?"} %>
   <% end %>

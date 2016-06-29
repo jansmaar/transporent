@@ -1,11 +1,7 @@
-<div class="container">
     <% @ads.each do |ad| %>
-          <div class="thumbnail">
-      <h2><%= link_to ad.title, ad_path(ad) %></h2>
-      <p> <%= ad.description %></p>
-      <%= link_to "Vervoer bekijken", ad_path(ad), class: "btn btn-warning" %>
-    </div>
+      <div class="thumbnail">
+        <h2><%= link_to ad.title, ad_path(ad) %></h2>
+        <p> <%= ad.description %></p>
+        <%= link_to "Vervoer bekijken", ad_path(ad), class: "btn btn-warning" %>
+      </div>
     <% end %>
-
-    <%= link_to "Verhuren?", new_ad_path %>
-</div>
