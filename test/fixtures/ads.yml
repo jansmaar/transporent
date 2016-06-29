@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  price: 9.99
+  categorie: MyString
+  brand: MyString
+  capacity: 9.99
+  license: MyString
+  plug: MyString
+  size: MyString
+  restrictions: MyText
+  status: false
+  title: MyString
+  description: MyText
+  transmission: MyString
+  year: 9.99
+  engine: MyString
+  fuel: MyString
+
+two:
+  price: 9.99
+  categorie: MyString
+  brand: MyString
+  capacity: 9.99
+  license: MyString
+  plug: MyString
+  size: MyString
+  restrictions: MyText
+  status: false
+  title: MyString
+  description: MyText
+  transmission: MyString
+  year: 9.99
+  engine: MyString
+  fuel: MyString

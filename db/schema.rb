@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160629114603) do
+ActiveRecord::Schema.define(version: 20160629125641) do
+
+  create_table "ads", force: :cascade do |t|
+    t.decimal  "price"
+    t.string   "categorie"
+    t.string   "brand"
+    t.decimal  "capacity"
+    t.string   "license"
+    t.string   "plug"
+    t.string   "size"
+    t.text     "restrictions"
+    t.boolean  "status"
+    t.string   "title"
+    t.text     "description"
+    t.string   "transmission"
+    t.decimal  "year"
+    t.string   "engine"
+    t.string   "fuel"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
