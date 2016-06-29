@@ -1,0 +1,9 @@
+<h2><%= @ad.title %> </h2>
+  <p><%= @ad.description %> </p>
+  <h3>Comments:</h3>
+<%= link_to "back", root_path %>
+  <% if user_signed_in? %>
+    <h3>reply to Message:</h3>
+    <%= link_to "edit", edit_ad_path(@ad) %>
+    <%= link_to "delete", ad_path(@ad), method: :delete, data: { confirm: "Weet je het zeker?"} %>
+  <% end %>
