@@ -1,18 +1,82 @@
-  <h2><%= @ad.title %> </h2>
-    <p><%= @ad.description %> </p>
-    <p><%= @ad.price %> </p>
-    <p><%= @ad.categorie %> </p>
-    <p><%= @ad.brand %> </p>
-    <p><%= @ad.capacity %> </p>
-    <p><%= @ad.license %> </p>
-    <p><%= @ad.plug %> </p>
-    <p><%= @ad.size %> </p>
-    <p><%= @ad.restrictions %> </p>
-    <p><%= @ad.status %> </p>
-    <p><%= @ad.transmission %> </p>
-    <p><%= @ad.year %> </p>
-    <p><%= @ad.engine %> </p>
-    <p><%= @ad.fuel %> </p>
+
+<div class="row">
+  <div class="col-md-4">
+    <h2>Henk de Boer</h2>
+    <p>Lid sinds: <%= @ad.user.created_at.strftime("%B %d, %Y") %></p>
+  </div>
+
+    <div class="col-md-4">
+      <h2><%= @ad.title %> </h2>
+      <p>Prijs per dag: <%= @ad.price %> </p>
+      <p><%= @ad.description %></p>
+    </div>
+</div>
+
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Specificaties</th>
+          <th>Benaming</th>
+        </tr>
+      </thead>
+
+      <tbody>
+          <tr>
+            <th scope="row">Laadvermogen</th>
+            <td><%= @ad.capacity %></td>
+          </tr>
+          <tr>
+            <th scope="row">Grootte</th>
+            <td><%= @ad.size %></td>
+          </tr>
+          <tr>
+            <th scope="row">Merk</th>
+            <td><%= @ad.brand %></td>
+          </tr>
+          <tr>
+            <th scope="row">Rijbewijs</th>
+            <td><%= @ad.license %></td>
+          </tr>
+          <tr>
+            <th scope="row">Stekker</th>
+            <td><%= @ad.plug %></td>
+          </tr>
+          <tr>
+            <th scope="row">transmission</th>
+            <td><%= @ad.transmission %></td>
+          </tr>
+          <tr>
+            <th scope="row">Bouwjaar</th>
+            <td><%= @ad.year %></td>
+          </tr>
+          <tr>
+            <th scope="row">Motor</th>
+            <td><%= @ad.engine %></td>
+          </tr>
+          <tr>
+            <th scope="row">Brandstof</th>
+            <td><%= @ad.fuel %></td>
+          </tr>
+      </tbody>
+    </table>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Dont's</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+          <tr>
+            <th scope="row"><%= @ad.restrictions %></th>
+            <td></td>
+          </tr>
+      </tbody>
+    </table>
+
 
     <h3>Reviews:</h3>
 
@@ -20,7 +84,7 @@
 
     <% if user_signed_in? %>
     <% if @ad.user_id == current_user.id %>
-      <h3>Je advetentie aanpassen?</h3>
+      <h3>Je advertentie aanpassen?</h3>
       <%= link_to "edit", edit_ad_path(@ad) %>
       <%= link_to "delete", ad_path(@ad), method: :delete, data: { confirm: "Weet je het zeker?"} %>
   <% end %>
