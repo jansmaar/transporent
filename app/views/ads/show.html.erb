@@ -1,7 +1,7 @@
 
 <div class="row">
   <div class="col-md-4">
-    <h2>Henk de Boer</h2>
+    <h2><%= link_to @ad.user.first_name, user_path(@ad.user) %></h2>
     <p>Lid sinds: <%= @ad.user.created_at.strftime("%B %d, %Y") %></p>
   </div>
     <%= image_tag @ad.image.url(:medium) %>

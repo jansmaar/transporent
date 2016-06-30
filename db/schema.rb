@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160630102902) do
-=======
-ActiveRecord::Schema.define(version: 20160630100933) do
->>>>>>> origin/master
 
   create_table "ads", force: :cascade do |t|
     t.decimal  "price"
