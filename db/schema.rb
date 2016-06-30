@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160629143518) do
+ActiveRecord::Schema.define(version: 20160630100933) do
 
   create_table "ads", force: :cascade do |t|
     t.decimal  "price"
@@ -47,6 +47,16 @@ ActiveRecord::Schema.define(version: 20160629143518) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "streetname"
+    t.string   "housenumber"
+    t.string   "zip_code"
+    t.string   "city"
+    t.string   "country"
+    t.string   "phone"
+    t.string   "gender"
+    t.text     "about"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

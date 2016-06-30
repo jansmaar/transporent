@@ -4,6 +4,56 @@
   <%= devise_error_messages! %>
 
   <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :streetname %><br />
+    <%= f.text_field :streetname, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :housenumber %><br />
+    <%= f.text_field :housenumber, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :zip_code %><br />
+    <%= f.text_field :zip_code, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :country %><br />
+    <%= f.select :country, ['Nederland'] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :gender %><br />
+    <%= f.select :gender, ['Man', 'Vrouw'] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :about %><br />
+    <%= f.text_field :about, autofocus: true %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
