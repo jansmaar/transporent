@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :ads
+  resources :users
 
 root 'ads#index'
   # The priority is based upon order of creation: first created -> highest priority.
