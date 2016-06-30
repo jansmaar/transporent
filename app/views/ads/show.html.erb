@@ -4,7 +4,7 @@
     <h2>Henk de Boer</h2>
     <p>Lid sinds: <%= @ad.user.created_at.strftime("%B %d, %Y") %></p>
   </div>
-
+    <%= image_tag @ad.image.url(:medium) %>
     <div class="col-md-4">
       <h2><%= @ad.title %> </h2>
       <p>Prijs per dag: <%= @ad.price %> </p>
