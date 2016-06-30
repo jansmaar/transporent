@@ -7,9 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-  <div class="navbar navbar-default">
     <div class="container">
+  <div class="navbar navbar-default">
+
       <div class="navbar-header">
         <%= link_to "Transporent", root_path, class: "navbar-brand" %>
       </div>
@@ -22,15 +22,14 @@
           <% end %>
       </ul>
       <Li class="nav navbar-nav navbar-right"><%= link_to "Verhuren?", new_ad_path %></Li>
-    </div>
   </div>
 
-  <div class="container">
+
     <p class="notice alert-success" role="alert"><%= notice %></p>
     <p class="alert" role="alert"><%= alert %></p>
-  </div>
 
-<div class="container">
+
+
   <%= yield %>
 </div>
 </body>
