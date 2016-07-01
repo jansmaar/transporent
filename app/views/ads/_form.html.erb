@@ -1,8 +1,9 @@
 <%= simple_form_for @ad, html: { multipart: true } do |f| %>
+  <%= f.label :categorie %>
+  <%= f.select :categorie, ['Aanhanger', 'Auto'] %>
   <%= f.input :title %>
   <%= f.label :image %>
   <%= f.file_field :image %>
-  <%= f.input :categorie %>
   <%= f.input :description %>
   <%= f.input :price %>
   <%= f.input :brand %>

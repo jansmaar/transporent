@@ -15,3 +15,16 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+    $('#ad_categorie').on('change', function() {
+      if ( this.value == 'Aanhanger')
+      {
+        $(".ad_plug, .ad_size, .ad_transmission, .ad_engine, .ad_fuel").show();
+      }
+      else
+      {
+        $(".ad_plug, .ad_size, .ad_transmission, .ad_engine, .ad_fuel").hide();
+      }
+    });
+});
