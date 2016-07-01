@@ -1,11 +1,17 @@
 class AdsController < ApplicationController
   before_action :find_ad, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit]
 
   def index
     @ads = Ad.all.order("created_at DESC")
   end
 
   def show
+    if @ad.reviews.blank?
+        @average_review = 0
+    else
+      @average_review = @ad.reviews.average(:rating).round(2)
+    end
   end
 
   def new
