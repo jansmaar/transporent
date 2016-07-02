@@ -4,6 +4,7 @@ class AdsController < ApplicationController
 
   def index
     @ads = Ad.all.order("created_at DESC")
+  
   end
 
   def show

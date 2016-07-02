@@ -75,24 +75,25 @@
           </tr>
       </tbody>
     </table>
+<div class="review-section container">
+    <h3>Beoordelingen <%= link_to "Geef jouw beoordeling", new_ad_review_path(@ad), :class => 'btn btn-warning' %></h3>
 
+    <div class="average-review-rating" data-score=<%= @average_review %>> gebaseerd op <%=@ad.reviews.count%>
+       beoordelingen
+    </div>
 
-    <h2>Beoordeling</h2>
-    <div class="average-review-rating" data-score=<%= @average_review %>> gebaseerd op <%=@ad.reviews.count%> beoordelingen </div>
+    <div class="single-review"><%= render @ad.reviews %></div>
+</div>
 
-    <div><%= link_to "Geef jouw beoordeling over", new_ad_review_path(@ad) %>
-    <%= render @ad.reviews %></div>
+<%= link_to "back", root_path %>
 
-  <%= link_to "back", root_path %>
-
-    <% if user_signed_in? %>
-    <% if @ad.user_id == current_user.id %>
-      <h3>Je advertentie aanpassen?</h3>
-      <%= link_to "edit", edit_ad_path(@ad) %>
-      <%= link_to "delete", ad_path(@ad), method: :delete, data: { confirm: "Weet je het zeker?"} %>
-  <% end %>
-  <% end %>
-
+<% if user_signed_in? %>
+<% if @ad.user_id == current_user.id %>
+  <h3>Je advertentie aanpassen?</h3>
+  <%= link_to "edit", edit_ad_path(@ad) %>
+  <%= link_to "delete", ad_path(@ad), method: :delete, data: { confirm: "Weet je het zeker?"} %>
+<% end %>
+<% end %>
 <script>
   $('.review-rating').raty({
     readOnly: true,
