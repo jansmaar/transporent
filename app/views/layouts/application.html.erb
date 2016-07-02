@@ -7,30 +7,27 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <div class="container">
-  <div class="navbar navbar-default">
-
+  <div class="container">
+    <div class="navbar navbar-default">
       <div class="navbar-header">
         <%= link_to "Transporent", root_path, class: "navbar-brand" %>
       </div>
-      <ul class="nav navbar-nav">
-        <Li><%= link_to "sign up", new_user_registration_path %></li>
-          <% if user_signed_in? %>
-        <Li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-          <% else %>
-            <Li><%= link_to "Sign in", new_user_session_path %></li>
-          <% end %>
-      </ul>
-      <Li class="nav navbar-nav navbar-right"><%= link_to "Verhuren?", new_ad_path %></Li>
-  </div>
 
+      <ul class="nav navbar-nav">
+        <% if user_signed_in? %>
+          <li><%= link_to ('Uitloggen'), destroy_user_session_path, method: 'delete' %></li>
+        <% else %>
+          <li><%= link_to ('Inloggen'), new_user_session_path %></li>
+          <li><%= link_to ('Registreren'), new_user_registration_path %></li>
+        <% end %>
+      </ul>
+        <Li class="btn-rent"><%= link_to "Verhuren?", new_ad_path %></Li>
+    </div>
 
     <p class="notice alert-success" role="alert"><%= notice %></p>
     <p class="alert" role="alert"><%= alert %></p>
-
-
-
-  <%= yield %>
-</div>
+    
+    <%= yield %>
+  </div>
 </body>
 </html>

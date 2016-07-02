@@ -4,7 +4,7 @@
 
   <% if user_signed_in? %>
     <% if review.user_id == current_user.id %>
-      <%= link_to "edit", edit_ad_review_path(review.ad, review) %>
-      <%= link_to "Delete", ad_review_path(review.ad, review), method: :delete, data: { confirm: "are yourik sure?"} %>
+      <%= link_to "Aanpassen", edit_ad_review_path(review.ad, review), :class => 'btn btn-default' %>
+      <%= link_to "Verwijderen", ad_review_path(review.ad, review), method: :delete, data: { confirm: "Weet je het zeker?"}, :class => 'btn btn-default' %>
     <% end %>
   <% end %>

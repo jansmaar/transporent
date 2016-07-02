@@ -1,3 +1,4 @@
+
 <div class="row">
   <div class="col-md-4">
     <h2><%= link_to @ad.user.first_name, user_path(@ad.user) %></h2>
@@ -10,7 +11,6 @@
       <p><%= @ad.description %></p>
     </div>
 </div>
-
 
     <table class="table table-striped">
       <thead>
@@ -75,25 +75,46 @@
           </tr>
       </tbody>
     </table>
-<div class="review-section container">
-    <h3>Beoordelingen <%= link_to "Geef jouw beoordeling", new_ad_review_path(@ad), :class => 'btn btn-warning' %></h3>
 
-    <div class="average-review-rating" data-score=<%= @average_review %>> gebaseerd op <%=@ad.reviews.count%>
+
+    <% if user_signed_in? %>
+      <% if @ad.user_id == current_user.id %>
+        <div class="edit-delete-section">
+          <h3>Jouw advertentie aanpassen?</h3>
+          <%= link_to "Advertentie aanpassen", edit_ad_path(@ad), :class => 'btn btn-default' %>
+          <%= link_to "Verwijderen", ad_path(@ad), method: :delete, data: { confirm: "Weet je het zeker?"}, :class => 'btn btn-danger' %>
+        </div>
+      <% end %>
+    <% end %>
+
+
+<div class="review-section">
+    <h3>Beoordelingen</h3>
+
+    <div class="average-review-rating" data-score=<%= @average_review %>>
+    </div>Gebaseerd op <%=@ad.reviews.count%>
        beoordelingen
-    </div>
 
     <div class="single-review"><%= render @ad.reviews %></div>
+
+    <div class="single-review">
+    <h4>Geef jouw beoordeling:</h4>
+    <%= simple_form_for([@ad, @ad.reviews.build]) do |f| %>
+    <div id="rating-form">
+    </div>
+      <p></p>
+      <%= f.input :comment, label: "Schrijf hier jouw tekst", placeholder: 'Bijvoorbeeld; de communicatie verliep zeer vlot, ik kon dezelfde dag mijn koelkast nog vervoeren.' %>
+      <%= f.button :submit, "Plaats beoordeling", :class=> 'btn-warning'%>
+    <% end %>
+  </div>
+    <script>
+      $('#rating-form').raty({
+        path: '/assets/',
+        scoreName: 'review[rating]'
+      });
+    </script>
 </div>
 
-<%= link_to "back", root_path %>
-
-<% if user_signed_in? %>
-<% if @ad.user_id == current_user.id %>
-  <h3>Je advertentie aanpassen?</h3>
-  <%= link_to "edit", edit_ad_path(@ad) %>
-  <%= link_to "delete", ad_path(@ad), method: :delete, data: { confirm: "Weet je het zeker?"} %>
-<% end %>
-<% end %>
 <script>
   $('.review-rating').raty({
     readOnly: true,

@@ -1,4 +1,8 @@
 
+<div class="header">
+  <h1>Zorgeloos huren van jouw buren</h1>
+  <h3>Grote spullen vervoeren begint hier</h3>
+</div>
   Er zijn <%= @ads.count %> aanhangwagens gevonden
   <div class="dropdown navbar-right">
     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -11,12 +15,13 @@
       <li><a href="#">Beoordeling</a></li>
     </ul>
   </div>
-
+<div class="ads">
     <% @ads.each do |ad| %>
-      <div class="thumbnail">
+      <div class="ad">
         <h2><%= link_to ad.title, ad_path(ad) %></h2>
         <p> <%= ad.description %></p>
-        
+
         <%= link_to "Vervoer bekijken", ad_path(ad), class: "btn btn-warning" %>
       </div>
     <% end %>
+  </div>
