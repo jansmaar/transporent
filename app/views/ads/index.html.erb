@@ -2,18 +2,22 @@
 <div class="header">
   <h1>Zorgeloos huren van jouw buren</h1>
   <h3>Grote spullen vervoeren begint hier</h3>
+  <%= search_form_for @search do |f| %>
+    <div class="field">
+      <%= f.label :location_cont, "plaats" %>
+      <%= f.text_field :location_cont %>
+
+      <%= f.select :categorie_cont, ['Aanhanger', 'Auto'] %>
+
+    </div>
+    <%= f.submit "zoeken" %>
+  <% end %>
 </div>
-<%= search_form_for @search do |f| %>
-  <div class="field">
-    <%= f.label :location_cont, "plaats" %>
-    <%= f.text_field :location_cont %>
 
-    <%= f.select :categorie_cont, ['Aanhanger', 'Auto'] %>
 
-  </div>
-  <%= f.submit "zoeken" %>
-<% end %>
+
   Er zijn <%= @ads.count %> aanhangwagens gevonden
+
   <div class="dropdown navbar-right">
     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
       Filter op
@@ -25,14 +29,52 @@
       <li><a href="#">Beoordeling</a></li>
     </ul>
   </div>
-<div class="ads">
-    <% @ads.each do |ad| %>
-      <div class="ad">
-        <h2><%= link_to ad.title, ad_path(ad) %></h2>
-        <p> <%= ad.description %></p>
-        <p> <%= ad.location %></p>
+<div class="row">
+  <div class="col-md-3 filter-sidebar">
 
-        <%= link_to "Vervoer bekijken", ad_path(ad), class: "btn btn-warning" %>
+
+                    <h4>Prijs per dag</h4>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <input name="ctl00$body$MinimumPriceTextbox" type="text" id="MinimumPriceTextbox" class="form-control" title="Van" placeholder="Van">
+                            </div>
+                            <div class="col-xs-6">
+                                <input name="ctl00$body$MaximumPriceTextbox" type="text" id="MaximumPriceTextbox" class="form-control" title="Tot" placeholder="Tot">
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4>Filter op rijbewijs</h4>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-6">
+                              <div class="checkbox">
+                                <label><input type="checkbox" value="">Rijbewijs B</label>
+                              </div>
+                              <div class="checkbox">
+                                <label><input type="checkbox" value="">Rijbewijs B+</label>
+                              </div>
+                              <div class="checkbox ">
+                                <label><input type="checkbox" value="">Rijbewijs BE</label>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+  <div class="ads">
+    <% @ads.each do |ad| %>
+      <div class="col-xs-6 col-sm-3 ad">
+          <h2><%= link_to ad.title, ad_path(ad) %></h2>
+          <p> <%= ad.description %></p>
+          <p> <%= ad.location %></p>
+
+          <%= link_to "Vervoer bekijken", ad_path(ad), class: "btn btn-warning" %>
       </div>
     <% end %>
   </div>
+
+</div>

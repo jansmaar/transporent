@@ -86,12 +86,27 @@ body{
   width: 100%;
 }
 
-.ad {
+.ad {    width: 24% !important;
+    height: 200px;
+    margin-top: 0px !Important;
+    position: relative;
+    border: 2px solid #eaeaea;
+    margin: 4px;
+    text-align: center;
+}
+
+.filter-sidebar {
   border: 1px solid #eaeaea;
-  padding: 10px;
-  width: 30%;
-  float: left;
-  margin-right: 7px;
+}
+
+.row {
+    width: 100% !important;
+    margin-left: 0px !important;
+    margin-top: 20px;
+}
+
+.checkbox {
+    width: 150px;
 }
 .header  {
 margin-top: -74px;
