@@ -2,16 +2,17 @@
 <div class="header">
   <h1>Zorgeloos huren van jouw buren</h1>
   <h3>Grote spullen vervoeren begint hier</h3>
-  <%= search_form_for @search do |f| %>
-    <div class="field">
-      <%= f.label :location_cont, "plaats" %>
-      <%= f.text_field :location_cont %>
 
-      <%= f.select :categorie_cont, ['Aanhanger', 'Auto'] %>
+  <div class="row">
+      <%= search_form_for @search do |f| %>
+        <div class="field">
+          <%= f.text_field :location_cont, placeholder: "Waar zoek je vervoer?", :class => "form-control placesearch" %>
 
-    </div>
-    <%= f.submit "zoeken" %>
-  <% end %>
+          <%= f.select(:categorie_cont, options_for_select([['Kies je vervoersmiddel'],['Aanhanger'], ['Auto']]), {}, {class: "form-control categoriesearch"}) %>
+        </div>
+        <%= f.submit "zoeken", :class => "btn btn-primary" %>
+      <% end %>
+  </div>
 </div>
 
 
