@@ -3,6 +3,16 @@
   <h1>Zorgeloos huren van jouw buren</h1>
   <h3>Grote spullen vervoeren begint hier</h3>
 </div>
+<%= search_form_for @search do |f| %>
+  <div class="field">
+    <%= f.label :location_cont, "plaats" %>
+    <%= f.text_field :location_cont %>
+
+    <%= f.select :categorie_cont, ['Aanhanger', 'Auto'] %>
+
+  </div>
+  <%= f.submit "zoeken" %>
+<% end %>
   Er zijn <%= @ads.count %> aanhangwagens gevonden
   <div class="dropdown navbar-right">
     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -20,6 +30,7 @@
       <div class="ad">
         <h2><%= link_to ad.title, ad_path(ad) %></h2>
         <p> <%= ad.description %></p>
+        <p> <%= ad.location %></p>
 
         <%= link_to "Vervoer bekijken", ad_path(ad), class: "btn btn-warning" %>
       </div>

@@ -3,8 +3,10 @@ class AdsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
 
   def index
-    @ads = Ad.all.order("created_at DESC")
-  
+    @search = Ad.search(params[:q])
+    @ads = @search.result.order("created_at DESC")
+    #@ads = Ad.all.order("created_at DESC")
+
   end
 
   def show
@@ -49,7 +51,7 @@ class AdsController < ApplicationController
   private
 
   def ad_params
-    params.require(:ad).permit(:title, :image, :description, :price, :categorie, :brand, :capacity, :license, :plug, :size, :restrictions, :status, :transmission, :year, :engine, :fuel)
+    params.require(:ad).permit(:title, :image, :description, :price, :categorie, :brand, :capacity, :license, :plug, :size, :restrictions, :status, :transmission, :year, :engine, :fuel, :location)
   end
 
   def find_ad

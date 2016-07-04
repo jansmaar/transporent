@@ -15,6 +15,16 @@
 #  last_sign_in_ip        :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  first_name             :string
+#  last_name              :string
+#  streetname             :string
+#  housenumber            :string
+#  zip_code               :string
+#  city                   :string
+#  country                :string
+#  phone                  :string
+#  gender                 :string
+#  about                  :text
 #
 
 class User < ActiveRecord::Base
