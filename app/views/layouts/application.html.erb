@@ -16,6 +16,7 @@
       <ul class="nav navbar-nav">
         <% if user_signed_in? %>
           <li><%= link_to ('Uitloggen'), destroy_user_session_path, method: 'delete' %></li>
+          <li><%= link_to ('Profiel bekijken'), current_user %></li>
         <% else %>
           <li><%= link_to ('Inloggen'), new_user_session_path %></li>
           <li><%= link_to ('Registreren'), new_user_registration_path %></li>

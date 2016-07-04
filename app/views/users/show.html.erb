@@ -11,3 +11,24 @@
 <p><%= @user.about %></p>
 <p><%= @user.email %></p>
 <p><%= @user.created_at %></p>
+
+<p>aantal: advertenties: <%= @user.ads.count %></p>
+
+<% @user.ads.each do |ads| %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Advertentie naam:</th>
+      <th>Omschrijving</th>
+      <th>Foto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> <%= link_to ads.title, ad_path(ads)  %></td>
+        <td> <%= ads.description %></td>
+          <td><%= image_tag ads.image.url(:medium) %></td>
+    </tr>
+  </tbody>
+</table>
+<% end %>
