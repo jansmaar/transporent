@@ -3,6 +3,7 @@
   <div class="col-md-4">
     <h2><%= link_to @ad.user.first_name, user_path(@ad.user) %></h2>
     <p>Lid sinds: <%= @ad.user.created_at.strftime("%B %d, %Y") %></p>
+    <p>Woonplaats: <%= @ad.user.city %></p>
   </div>
     <%= image_tag @ad.image.url(:medium) %>
     <div class="col-md-4">
