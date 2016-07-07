@@ -33,15 +33,15 @@
 <div class="row">
   <div class="col-md-3 filter-sidebar">
 
-  <%= search_form_for @search do |f| %>
+
                     <h4>Prijs per dag</h4>
                     <div class="form-group">
                         <div class="row">
                             <div class="col-xs-6">
-                                <%= f.text_field :price_gteq, :id=> "MinimumPriceTextbox", :class=> "form-control", :placeholder=> "Van" %>
+                                <input name="ctl00$body$MinimumPriceTextbox" type="text" id="MinimumPriceTextbox" class="form-control" title="Van" placeholder="Van">
                             </div>
                             <div class="col-xs-6">
-                              <%= f.text_field :price_lteq, :id=> "MaximumPriceTextbox", :class=> "form-control",  :placeholder=> "Tot" %>
+                                <input name="ctl00$body$MaximumPriceTextbox" type="text" id="MaximumPriceTextbox" class="form-control" title="Tot" placeholder="Tot">
                             </div>
                         </div>
                     </div>
@@ -62,9 +62,9 @@
                             </div>
                         </div>
                     </div>
-<%= f.submit "Filter", :class => " btn-search" %>
-      <% end %>
-    </div>
+
+
+                </div>
 
   <div class="ads">
     <% @ads.each do |ad| %>
