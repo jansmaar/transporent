@@ -10,8 +10,7 @@
 
           <%= f.select(:categorie_cont, options_for_select([['Kies je vervoersmiddel'],['Aanhanger'], ['Auto']]), {}, {class: "form-control categoriesearch"}) %>
         </div>
-
-        <%= f.submit "zoeken", :class => " btn-search" %>
+        <%= f.submit "zoeken", :class => "btn btn-primary" %>
       <% end %>
   </div>
 </div>
@@ -70,19 +69,13 @@
   <div class="ads">
     <% @ads.each do |ad| %>
       <div class="col-xs-6 col-sm-3 ad">
-          <h3><%= link_to ad.title, ad_path(ad) %></h3>
+          <h2><%= link_to ad.title, ad_path(ad) %></h2>
           <p> <%= ad.description %></p>
           <p> <%= ad.location %></p>
+
+          <%= link_to "Vervoer bekijken", ad_path(ad), class: "btn btn-warning" %>
       </div>
     <% end %>
   </div>
 
 </div>
-
-<script>
-  $(function() {
-    $( "#datepicker" ).datepicker();
-  });
-
-
-  </script>

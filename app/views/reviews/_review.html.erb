@@ -1,12 +1,11 @@
-<b><%= review.user.first_name %> <%= review.user.last_name %></b>:
 <div class="review-rating" data-score="<%= review.rating %>"></div>
+<%= review.user.first_name %> <%= review.user.last_name %> zegt:
 <p><%= review.comment%></p>
 
-<% if user_signed_in? %>
-  <% if review.user_id == current_user.id %>
-    <%= link_to "Aanpassen", edit_ad_review_path(review.ad, review), :class => 'btn btn-default' %>
-    <%= link_to "Verwijderen", ad_review_path(review.ad, review), method: :delete, data: { confirm: "Weet je het zeker?"}, :class => 'btn btn-default' %>
-  <% end %>
-<% end %>
 
-<hr>
+  <% if user_signed_in? %>
+    <% if review.user_id == current_user.id %>
+      <%= link_to "Aanpassen", edit_ad_review_path(review.ad, review), :class => 'btn btn-default' %>
+      <%= link_to "Verwijderen", ad_review_path(review.ad, review), method: :delete, data: { confirm: "Weet je het zeker?"}, :class => 'btn btn-default' %>
+    <% end %>
+  <% end %>
