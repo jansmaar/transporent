@@ -1,7 +1,7 @@
 
 <div class="header">
-  <h1>Zorgeloos huren van jouw buren</h1>
-  <h3>Grote spullen vervoeren begint hier</h3>
+  <h1>Transport huren bij je buren?</h1>
+  <h3>Geschikt vervoer voor grote spullen</h3>
 
   <div class="row">
       <%= search_form_for @search do |f| %>
@@ -69,14 +69,15 @@
   <div class="ads">
     <% @ads.each do |ad| %>
       <div class="col-xs-6 col-sm-3 ad">
-          <b><%= link_to ad.title, ad_path(ad) %></b>
+        <%= image_tag ad.image.url(:medium) %>
+          <h4><%= link_to ad.title, ad_path(ad) %></h4>
           <p> Afmeting <%= ad.size %></p>
           <p> Laadvermogen <%= ad.capacity %></p>
-          <%= image_tag ad.image.url(:thumbnail) %>
+
           <p> <%= ad.location %></p>
-         <div class="average-review-rating" data-score=<%= @average_review %>>
-    </div>Gebaseerd op <%= ad.reviews.count%>
-       beoordelingen
+
+       <div class="average-review-rating" data-score=<%= @average_review %>>
+       </div><p><%= ad.reviews.count%> recensies</p>
 
       </div>
     <% end %>
