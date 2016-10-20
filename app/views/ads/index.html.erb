@@ -69,13 +69,48 @@
   <div class="ads">
     <% @ads.each do |ad| %>
       <div class="col-xs-6 col-sm-3 ad">
-          <h2><%= link_to ad.title, ad_path(ad) %></h2>
-          <p> <%= ad.description %></p>
+          <b><%= link_to ad.title, ad_path(ad) %></b>
+          <p> Afmeting <%= ad.size %></p>
+          <p> Laadvermogen <%= ad.capacity %></p>
+          <%= image_tag ad.image.url(:thumbnail) %>
           <p> <%= ad.location %></p>
+         <div class="average-review-rating" data-score=<%= @average_review %>>
+    </div>Gebaseerd op <%= ad.reviews.count%>
+       beoordelingen
 
-          <%= link_to "Vervoer bekijken", ad_path(ad), class: "btn btn-warning" %>
       </div>
     <% end %>
   </div>
 
 </div>
+
+
+
+
+    <script>
+      $('#rating-form').raty({
+        path: '/assets/',
+        scoreName: 'review[rating]'
+      });
+    </script>
+</div>
+
+<script>
+  $('.review-rating').raty({
+    readOnly: true,
+    score: function(){
+      return $(this).attr('data-score');
+    },
+    path: '/assets/'
+  })
+</script>
+
+<script>
+  $('.average-review-rating').raty({
+    readOnly: true,
+    path: '/assets/',
+    score: function() {
+      return $(this).attr('data-score')
+    }
+  })
+</script>

@@ -6,7 +6,7 @@ class AdsController < ApplicationController
     @search = Ad.search(params[:q])
     @ads = @search.result.order("created_at DESC")
     #@ads = Ad.all.order("created_at DESC")
-
+    
   end
 
   def show
